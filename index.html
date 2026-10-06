@@ -5187,16 +5187,24 @@
         const gameAvailabilityCache = new Map();
 
         async function checkGameFileAvailable(url) {
+            if (!url) return false;
             if (gameAvailabilityCache.has(url)) return gameAvailabilityCache.get(url);
             const check = (async () => {
                 try {
                     // HEAD first: GitHub Pages answers it for static files, and
                     // it avoids downloading a multi-megabyte bundle twice.
                     let res = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+                    if (res.status === 404 || res.status === 410) return false;
                     if (res.status === 405 || res.status === 501) {
                         res = await fetch(url, { method: 'GET', cache: 'no-store' });
+                        if (res.status === 404 || res.status === 410) return false;
                     }
-                    return res.ok;
+                    // Some static hosts and browser/proxy stacks refuse HEAD
+                    // outright, or respond with 403/503/other transient statuses
+                    // even though the game file is present and valid. Treat those
+                    // as "unknown, not definitively missing" and let the iframe
+                    // itself prove whether the page can actually render.
+                    return res.ok || ![404, 410].includes(res.status);
                 } catch (e) {
                     // A CORS or offline failure is not proof the file is missing;
                     // let the iframe try rather than blocking a working game.
