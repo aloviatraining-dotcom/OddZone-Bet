@@ -1,0 +1,11 @@
+@echo off
+cd /d "%~dp0"
+git config submodule.recurse false
+git add index.html liveActivity.js
+git commit -m "Automated update: real-time feed and app sync"
+git push origin main
+echo.
+echo ========================================
+echo Done! Press any key to exit.
+echo ========================================
+pause

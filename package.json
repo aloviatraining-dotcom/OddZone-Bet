@@ -1,0 +1,10 @@
+{
+  "name": "oddzone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OddZone skill-gaming static site. The build step prepares the deployable output.",
+  "scripts": {
+    "build": "node scripts/build-404.mjs",
+    "deploy": "node scripts/build-404.mjs && node scripts/deploy.mjs"
+  }
+}
