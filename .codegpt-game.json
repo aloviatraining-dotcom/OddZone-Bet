@@ -1,0 +1,19 @@
+{
+  "name": "ODDDZONE _PROJECT",
+  "engine": "generic",
+  "launch": {
+    "cmd": "node",
+    "args": ["scripts/serve.mjs"],
+    "env": { "PORT": "8123" }
+  },
+  "log": {
+    "stdout": true
+  },
+  "ready": "OddZone is serving at",
+  "sourceRoots": [
+    "games",
+    "scripts",
+    "."
+  ],
+  "vars": { "PORT": "8123" }
+}

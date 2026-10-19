@@ -1,0 +1,23 @@
+{
+  "name": "OddZone Bet",
+  "short_name": "OddZone Bet",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f051d",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "description": "OddZone Bet — Skill-based 1v1 gaming platform. Win real cash!",
+  "orientation": "portrait",
+  "scope": "."
+}

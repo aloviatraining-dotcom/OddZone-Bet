@@ -1,0 +1,22 @@
+# Dependencies — never commit these. games/cave-runner/node_modules alone is
+# ~600 MB, which makes `git push` / GitHub Pages deploys fail outright.
+node_modules/
+.cache/
+.vite/
+dist-ssr/
+
+# Build output is kept (games/cave-runner/dist is served directly), but its
+# per-file sourcemaps are not needed in production.
+*.map
+
+# Local env / editor noise
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.log
+
+# Stray backups and scratch folders
+index.html.bak
+ODDZONE MOBILE - Copy/
+ODDZONE GAMES/ODDZONE GAMES - Copy/
